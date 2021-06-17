@@ -1,0 +1,657 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js!!!!</title>
+
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!--Slide 1-->
+			<section data-background-color="#333">
+				<h1>CSS <span>Grid </span>Layout</h1>
+			</section>
+			<!--Slide 2-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">Grid Definition</h2>
+				<div class="grid-container">
+					<h3 class="slide-title">Grid-container</h3>
+					<div class="grid-item">grid-item</div>
+					<div class="grid-item">grid-item</div>
+					<div class="grid-item">grid-item</div>
+					<div class="grid-item">grid-item</div>
+					<div class="grid-item">grid-item</div>
+					<div class="grid-item">grid-item</div>
+				</div>
+			</section>
+			<!--Slide 3-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">Basic Concepts</h2>
+				<div class="grid2-container">
+					<p class="line-text">Grid Line</p>
+					<div class="grid2-item grid-cell">
+						<p>Grid Cell</p>
+					</div>
+					<div class="grid2-item grid-line"></div>
+					<div class="grid2-item grid-column">Grid Track(column)</div>
+					<div class="grid2-item"></div>
+					<div class="grid2-item"></div>
+					<div class="grid2-item"></div>
+					<div class="grid2-item grid-line"></div>
+					<div class="grid2-item grid-column"></div>
+					<div class="grid2-item"></div>
+					<div class="grid2-item"></div>
+					<div class="grid2-item grid-row">Grid Track(row)</div>
+					<div class="grid2-item grid-row grid-line"></div>
+					<div class="grid2-item grid-row grid-column"></div>
+					<div class="grid2-item grid-row"></div>
+					<div class="grid2-item grid-row"></div>
+					<div class="grid2-item"></div>
+					<div class="grid2-item grid-line"></div>
+					<div class="grid2-item grid-column"></div>
+					<div class="grid2-item grid-area">Grid Area</div>
+					<div class="grid2-item grid-area"></div>
+					<div class="grid2-item"></div>
+					<div class="grid2-item grid-line"></div>
+					<div class="grid2-item grid-column"></div>
+					<div class="grid2-item grid-area"></div>
+					<div class="grid2-item grid-area"></div>
+				</div>
+			</section>
+			<!--Slide 4-->
+			<section data-background-color="#333">
+				<h1>The grid <span>Parent</span> properties</h1>
+			</section>
+			<!--Slide 5-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">grid-template-columns</h2>
+				<div class="grid3-container">
+					<div class="grid1-item">500px</div>
+					<div class="grid1-item">auto</div>
+					<div class="grid1-item">300px</div>
+				</div>
+				<p class="grid-text">grid-template-columns: 500px auto 200px;</p>
+				<div class="grid4-container">
+					<div class="grid1-item">1fr</div>
+					<div class="grid1-item">1fr</div>
+					<div class="grid1-item">1fr</div>
+				</div>
+				<p class="grid-text">grid-template-columns: 1fr 1fr 1fr;</p>
+			</section>
+			<!--Slide 6-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">grid-template-rows</h2>
+				<div class="flex-container">
+					<div class="flex-cell">
+						<div class="grid5-container">
+							<div class="grid1-item">200px</div>
+							<div class="grid1-item">auto</div>
+							<div class="grid1-item">100px</div>
+						</div>
+						<p class="grid-text">grid-template-rows: <br>500px auto 200px;</p>
+					</div>
+					<div class="flex-cell">
+						<div class="grid6-container">
+							<div class="grid1-item">1fr</div>
+							<div class="grid1-item">1fr</div>
+							<div class="grid1-item">1fr</div>
+						</div>
+						<p class="grid-text">grid-template-rows: <br>1fr 1fr 1fr;</p>
+					</div>
+				</div>
+			</section>
+			<!--Slide 7-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">Grid-template</h2>
+				<p class="syntax">Syntax</p>
+					<pre>
+						<code data-trim data-noescape>
+							grid-template: none | grid-template-rows / grid-template-columns;
+						</code>
+					</pre>
+				<p>Colums refers to setting the width of each column, & Rows refers to setting the height of each row</p>
+			</section>
+			<!--Slide 8-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">grid-template-areas</h2>
+				<h3>12 row X 12 column Layout</h3>
+				<div class="grid7-container">
+					<div class="grid1-item box-1"> A = 12 columns;<br>4 rows</div>
+					<div class="grid1-item box-2"> B = 10 columns;<br>8 rows </div>
+					<div class="grid1-item box-3"> C = 2 columns;<br>8rows</div>
+				</div>
+			</section>
+			<!--Slide 9-->
+			<section data-background-color="#FFF">
+				<div class="area-flex">
+					<div class="area-cell">
+						<h3>Parent class</h3>
+						<pre><code data-trim data-noescape>
+								.container {
+									display: grid;
+									gap: 20px;
+									height: 100vh;
+									grid-template-areas:
+										"AAAA AAAA AAAA"
+										"BBBB BBBB BBCC"
+										"BBBB BBBB BBCC";
+								}
+							</code></pre>
+
+					</div>
+					<div class="area-cell">
+						<h3>Children classes</h3>
+						<pre><code data-trim data-noescape>
+								.box-1{
+									grid-area: A;
+								}
+								.box-2{
+									grid-area: B;
+								}
+								.box-3{
+									grid-area: C;
+								}
+							</code></pre>
+					</div>
+				</div>
+			</section>
+			<!--Slide 10-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">Grid gap</h2>
+				<div class="gap-flex">
+					<div class="gap-cell">
+						<p>grid-column-gap: 20px;</p>
+						<div class="grid8a-container">
+							<div class="grid3-item gap-col">col 1</div>
+							<div class="grid3-item gap-col">col 2</div>
+							<div class="grid3-item gap-col">col 1</div>
+							<div class="grid3-item gap-col">col 2</div>
+						</div>
+					</div>
+					<div class="gap-cell">
+						<p>grid-row-gap: 20px;</p>
+						<div class="grid8b-container">
+							<div class="grid3-item">row 1</div>
+							<div class="grid3-item">row 1</div>
+							<div class="grid3-item">row 2</div>
+							<div class="grid3-item">row 2</div>
+						</div>
+					</div>
+					<div class="gap-cell">
+						<p>grid-gap:<br>20px 10px;</p>
+						<div class="grid8c-container">
+							<div class="grid3-item">1</div>
+							<div class="grid3-item">2</div>
+							<div class="grid3-item">3</div>
+							<div class="grid3-item">4</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--Slide 11-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">Justify-items</h2>
+				<div class="justify-flex">
+					<div class="justify-cell">
+						<p>start</p>
+						<div class="justify-container grid9a-container">
+							<div class="grid3-item justify-item">1</div>
+							<div class="grid3-item justify-item">2</div>
+							<div class="grid3-item justify-item">3</div>
+							<div class="grid3-item justify-item">4</div>
+						</div>
+					</div>
+					<div class="justify-cell">
+						<p>end</p>
+						<div class="justify-container grid9b-container">
+							<div class="grid3-item justify-item">1</div>
+							<div class="grid3-item justify-item">2</div>
+							<div class="grid3-item justify-item">3</div>
+							<div class="grid3-item justify-item">4</div>
+						</div>
+					</div>
+					<div class="justify-cell">
+						<p>center</p>
+						<div class="justify-container grid9c-container">
+							<div class="grid3-item justify-item">1</div>
+							<div class="grid3-item justify-item">2</div>
+							<div class="grid3-item justify-item">3</div>
+							<div class="grid3-item justify-item">4</div>
+						</div>
+					</div>
+					<div class="justify-cell">
+						<p>stretch</p>
+						<div class="justify-container grid9d-container">
+							<div class="grid3-item">1</div>
+							<div class="grid3-item">2</div>
+							<div class="grid3-item">3</div>
+							<div class="grid3-item">4</div>
+						</div>
+					</div>
+				</div>
+				<h3 class="slide-name">X-axis</h3>
+			</section>
+			<!--Slide 12-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">align-items</h2>
+				<div class="justify-flex">
+					<div class="justify-cell">
+						<p>start</p>
+						<div class="align-container grid10a-container">
+							<div class="grid3-item align-item">1</div>
+							<div class="grid3-item align-item">2</div>
+							<div class="grid3-item align-item">3</div>
+							<div class="grid3-item align-item">4</div>
+						</div>
+					</div>
+					<div class="justify-cell">
+						<p>end</p>
+						<div class="align-container grid10b-container">
+							<div class="grid3-item align-item">1</div>
+							<div class="grid3-item align-item">2</div>
+							<div class="grid3-item align-item">3</div>
+							<div class="grid3-item align-item">4</div>
+						</div>
+					</div>
+					<div class="justify-cell">
+						<p>center</p>
+						<div class="align-container grid10c-container">
+							<div class="grid3-item align-item">1</div>
+							<div class="grid3-item align-item">2</div>
+							<div class="grid3-item align-item">3</div>
+							<div class="grid3-item align-item">4</div>
+						</div>
+					</div>
+					<div class="justify-cell">
+						<p>stretch</p>
+						<div class="align-container grid10d-container">
+							<div class="grid3-item align-item">1</div>
+							<div class="grid3-item align-item">2</div>
+							<div class="grid3-item align-item">3</div>
+							<div class="grid3-item align-item">4</div>
+						</div>
+					</div>
+				</div>
+				<h3 class="slide-name">Y-axis</h3>
+			</section>
+			<!--Slide 13-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">place-items</h2>
+				<p class="syntax">Syntax</p>
+					<pre>
+						<code data-trim data-noescape>
+							place-items: align-items justify-items
+						</code>
+					</pre>
+				<p>If single value is assigned then it will set the same for both properties</p>
+			</section>
+			<!--Slide 14-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">justify-content</h2>
+				<div class="justify2-flex">
+					<div class="justify2-cell">
+						<p>start</p>
+						<div class="justify2-container grid11a-container">
+							<div class="grid3-item justify2-item">1</div>
+							<div class="grid3-item justify2-item">2</div>
+							<div class="grid3-item justify2-item">3</div>
+							<div class="grid3-item justify2-item">4</div>
+						</div>
+					</div>
+					<div class="justify2-cell">
+						<p>end</p>
+						<div class="justify2-container grid11b-container">
+							<div class="grid3-item justify2-item">1</div>
+							<div class="grid3-item justify2-item">2</div>
+							<div class="grid3-item justify2-item">3</div>
+							<div class="grid3-item justify2-item">4</div>
+						</div>
+					</div>
+					<div class="justify2-cell">
+						<p>center</p>
+						<div class="justify2-container grid11c-container">
+							<div class="grid3-item justify2-item">1</div>
+							<div class="grid3-item justify2-item">2</div>
+							<div class="grid3-item justify2-item">3</div>
+							<div class="grid3-item justify2-item">4</div>
+						</div>
+					</div>
+				</div>
+				<div class="justify2-flex">
+					<div class="justify2-cell">
+						<p>space-between</p>
+						<div class="justify2-container grid11d-container">
+							<div class="grid3-item justify2-item">1</div>
+							<div class="grid3-item justify2-item">2</div>
+							<div class="grid3-item justify2-item">3</div>
+							<div class="grid3-item justify2-item">4</div>
+						</div>
+					</div>
+					<div class="justify2-cell">
+						<p>space-evenly</p>
+						<div class="justify2-container grid11e-container">
+							<div class="grid3-item justify2-item">1</div>
+							<div class="grid3-item justify2-item">2</div>
+							<div class="grid3-item justify2-item">3</div>
+							<div class="grid3-item justify2-item">4</div>
+						</div>
+					</div>
+					<div class="justify2-cell">
+						<p>space-around</p>
+						<div class="justify2-container grid11f-container">
+							<div class="grid3-item justify2-item">1</div>
+							<div class="grid3-item justify2-item">2</div>
+							<div class="grid3-item justify2-item">3</div>
+							<div class="grid3-item justify2-item">4</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--Slide 15-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">align-content</h2>
+				<div class="justify2-flex">
+					<div class="justify2-cell">
+						<p>start</p>
+						<div class="align2-container grid12a-container">
+							<div class="grid3-item align2-item">1</div>
+							<div class="grid3-item align2-item">2</div>
+							<div class="grid3-item align2-item">3</div>
+							<div class="grid3-item align2-item">4</div>
+						</div>
+					</div>
+					<div class="justify2-cell">
+						<p>end</p>
+						<div class="align2-container grid12b-container">
+							<div class="grid3-item align2-item">1</div>
+							<div class="grid3-item align2-item">2</div>
+							<div class="grid3-item align2-item">3</div>
+							<div class="grid3-item align2-item">4</div>
+						</div>
+					</div>
+					<div class="justify2-cell">
+						<p>center</p>
+						<div class="align2-container grid12c-container">
+							<div class="grid3-item align2-item">1</div>
+							<div class="grid3-item align2-item">2</div>
+							<div class="grid3-item align2-item">3</div>
+							<div class="grid3-item align2-item">4</div>
+						</div>
+					</div>
+				</div>
+				<div class="justify2-flex">
+					<div class="justify2-cell">
+						<p>space-between</p>
+						<div class="align2-container grid12e-container">
+							<div class="grid3-item align2-item">1</div>
+							<div class="grid3-item align2-item">2</div>
+							<div class="grid3-item align2-item">3</div>
+							<div class="grid3-item align2-item">4</div>
+						</div>
+					</div>
+					<div class="justify2-cell">
+						<p>space-evenly</p>
+						<div class="align2-container grid12f-container">
+							<div class="grid3-item align2-item">1</div>
+							<div class="grid3-item align2-item">2</div>
+							<div class="grid3-item align2-item">3</div>
+							<div class="grid3-item align2-item">4</div>
+						</div>
+					</div>
+					<div class="justify2-cell">
+						<p>space-around</p>
+						<div class="align2-container grid12g-container">
+							<div class="grid3-item align2-item">1</div>
+							<div class="grid3-item align2-item">2</div>
+							<div class="grid3-item align2-item">3</div>
+							<div class="grid3-item align2-item">4</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--Slide 16-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">place-content</h2>
+				<p class="syntax">Syntax</p>
+					<pre>
+						<code data-trim data-noescape>
+							place-content: align-content justify-content
+						</code>
+					</pre>
+				<p>If single value is assigned then it will set the same for both properties</p>
+			</section>
+			<!--Slide 17-->
+			<section data-background-color="#333">
+				<h1>The grid <span>Child</span> properties</h1>
+			</section>
+			<!--Slide 18-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">grid-column-start / end</h2>
+				<div class="flex-body">
+					<div class="flex-item">
+						<div class="grid-cont">
+							<div class="grid-item grid-it-active">1</div>
+							<div class="grid-item grid-it">2</div>
+							<div class="grid-item grid-it">3</div>
+							<div class="grid-item grid-it">4</div>
+							<div class="grid-item grid-it">5</div>
+						</div>
+
+					</div>
+					<div class="flex-item">
+						<pre><code data-trim data-noescape>
+									grid-column-start: X;
+									grid-column-end: Y;
+									grid-column: X / Y;
+							</code></pre>
+						<pre><code data-trim data-noescape>
+								.grid-item-gray {
+									grid-column: 1/3;
+								}
+							</code></pre>
+					</div>
+				</div>
+
+				<h2 class="slide-name">grid-row-start / end</h2>
+				<div class="flex-body">
+					<div class="flex-item">
+						<div class="grid-cont">
+							<div class="grid-item grid-it-row">1</div>
+							<div class="grid-item grid-it">2</div>
+							<div class="grid-item grid-it">3</div>
+							<div class="grid-item grid-it">4</div>
+							<div class="grid-item grid-it">5</div>
+						</div>
+
+					</div>
+					<div class="flex-item">
+						<pre><code data-trim data-noescape>
+								.grid-item-gray {
+									grid-row: 1 / span 2;
+								}
+							</code></pre>
+						<pre><code data-trim data-noescape>
+								.grid-item-gray {
+									grid-row-start: 1/3;
+								}
+							</code></pre>
+					</div>
+				</div>
+			</section>
+      <!--Slide 19-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">Grid area</h2>
+				<div class="flex-body">
+					<div class="flex-item">
+						<div class="grid-cont">
+							<div class="grid-item grid-it-area">1</div>
+							<div class="grid-item grid-it">2</div>
+							<div class="grid-item grid-it">3</div>
+							<div class="grid-item grid-it">4</div>
+							<div class="grid-item grid-it">5</div>
+							<div class="grid-item grid-it">6</div>
+						</div>
+
+					</div>
+					<div class="flex-item">
+						<pre><code data-trim data-noescape>
+							.grid-item-gray {
+								grid-area: 1 / 2 / 3 / 4;
+							}
+							</code></pre>
+							<pre><code data-trim data-noescape>
+								.grid-item-gray {
+									grid-row-start: 1;
+									grid-column-start: 2;
+									grid-row-end: 3;
+									grid-column-end: 4;
+								}
+								</code></pre>
+					</div>
+				</div>
+			</section>
+			<!--Slide 20-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">Justify-self</h2>
+				<div class="justify2-flex">
+					<div class="justify2-cell">
+						<div class="self1-container">
+							<div class="">start</div>
+							<div class="">end</div>
+							<div class="">center</div>
+							<div class="">stretch</div>
+						</div>
+						<div class="self2-container">
+							<div class="grid-item self-item self-start">1</div>
+							<div class="grid-item self-item self-end">2</div>
+							<div class="grid-item self-item self-center">3</div>
+							<div class="grid-item self-item self-stretch">4</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="slide-name">Align-self</h2>
+				<div class="justify2-flex">
+					<div class="justify2-cell">
+						<div class="self1-container">
+							<div class="">start</div>
+							<div class="">end</div>
+							<div class="">center</div>
+							<div class="">stretch</div>
+						</div>
+						<div class="self2b-container">
+							<div class="grid-item self-item self2-start">1</div>
+							<div class="grid-item self-item self2-end">2</div>
+							<div class="grid-item self-item self2-center">3</div>
+							<div class="grid-item self-item self2-stretch">4</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--Slide 21-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">Place-self</h2>
+				<p class="syntax">Syntax</p>
+					<pre>
+						<code data-trim data-noescape>
+							place-self: align-self justify-self
+						</code>
+					</pre>
+				<p>If single value is assigned then it will set the same for both properties</p>
+			</section>
+			<!--Slide 22-->
+			<section data-background-color="#333">
+				<h1>CSS3 Grid <span>Functions</span></h1>
+			</section>
+			<!--Slide 23-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">repeat()</h2>
+				<p class="syntax">Syntax</p>
+					<pre>
+						<code data-trim data-noescape>
+							repeat(quantity, width | height)
+						</code>
+					</pre>
+					<pre>
+						<code data-trim data-noescape>
+							/* Earlier for 5x5 grid: */
+							grid-template:1f 1f 1f 1f 1f / 1f 1f 1f 1f 1f;
+
+							/* After using repeat( ) for 10x10 grid: */
+							grid-template: repeat(5,1fr)/ repeat(5,1fr);
+						</code>
+					</pre>
+			</section>
+			<!--Slide 24-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">minmax( )</h2>
+				<p class="syntax">Syntax</p>
+					<pre>
+						<code data-trim data-noescape>
+							minmax(min-range, max-range)
+						</code>
+					</pre>
+					<pre>
+						<code data-trim data-noescape>
+							.grid-container {
+								display: grid;
+								grid-template-columns: minmax(auto, 100px) minmax(auto, 100px);
+							}
+						</code>
+					</pre>
+			</section>
+			<!--Slide 25-->
+			<section data-background-color="#FFF">
+				<h2 class="slide-name">fit-content( )</h2>
+				<p class="syntax">Syntax</p>
+					<pre>
+						<code data-trim data-noescape>
+							fit-content(width-range)
+						</code>
+					</pre>
+					<pre>
+						<code data-trim data-noescape>
+							.grid-container {
+								display: grid;
+								grid-template-columns: fit-content(250px) fit-content(250px) 1fr;
+							}
+						</code>
+					</pre>
+			</section>
+			<!--Slide 26-->
+			<section data-background-color="#333">
+				<h1>Thank you very much!</h1>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
